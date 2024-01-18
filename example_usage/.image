@@ -1,1 +1,1 @@
-IMAGE=tf
+IMAGE=so1omon/tf_image:latest
