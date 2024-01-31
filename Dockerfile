@@ -23,7 +23,9 @@ RUN \
     ln -s ~/.tgenv/bin/* /usr/local/bin && \
     pip install pre-commit && \
     pip install -U checkov && \
-    echo -e '#Terraform aliases\nalias tf=terraform\nalias tg=terragrunt' >> ~/.bashrc
+    echo "alias tf='terraform'" >> ~/.bashrc && \
+    echo "alias tg='terragrunt'" >> ~/.bashrc
+
 
 WORKDIR /workspace
 
