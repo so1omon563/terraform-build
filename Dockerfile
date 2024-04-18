@@ -26,13 +26,11 @@ RUN \
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --all && \
     echo "export HISTFILE=~/.zsh_history" >> ~/.zshrc && \
     echo "export HISTFILE=~/.zsh_history" >> ~/.bashrc && \
+    echo "alias tf='terraform'" >> ~/.bashrc && \
+    echo "alias tg='terragrunt'" >> ~/.bashrc && \
     echo "alias tf='terraform'" >> ~/.zshrc && \
     echo "alias tg='terragrunt'" >> ~/.zshrc && \
     usermod -s /bin/zsh root
-
-    RUN \
-    SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=~/.zsh_history" && \
-    echo $SNIPPET >> ~/.zshrc
 
 WORKDIR /workspace
 
