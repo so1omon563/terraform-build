@@ -3,6 +3,9 @@ source .image
 
 [ ! -e $HOME/.terraform.d/plugin-cache ] && mkdir -p $HOME/.terraform.d/plugin-cache
 [ ! -e $HOME/.cache/pre-commit ] && mkdir -p $HOME/.cache/pre-commit
+[ ! -e $HOME/.zsh_history ] && touch $HOME/.zsh_history
+
+
 
 
 # Checks to see if AWS_* environment variables are set and only exports them if they are there.
@@ -14,6 +17,7 @@ if [ -z $AWS_DEFAULT_REGION ] && [ -z $AWS_REGION ] && [ -z $AWS_ACCESS_KEY_ID ]
     -v $HOME/.terraform.d/plugin-cache:/root/.terraform.d/plugin-cache:rw \
     -v $HOME/.ssh:/root/.ssh:ro \
     -v $HOME/.aws:/root/.aws:rw \
+    -v $HOME/.zsh_history:/root/.zsh_history:rw \
     -e TF_PLUGIN_CACHE_DIR="/root/.terraform.d/plugin-cache" \
     -e WORKSPACE=$PWD \
     -h $(basename $PWD) \
@@ -27,6 +31,7 @@ else
     -v $HOME/.terraform.d/plugin-cache:/root/.terraform.d/plugin-cache:rw \
     -v $HOME/.ssh:/root/.ssh:ro \
     -v $HOME/.aws:/root/.aws:rw \
+    -v $HOME/.zsh_history:/root/.zsh_history:rw \
     -e TF_PLUGIN_CACHE_DIR="/root/.terraform.d/plugin-cache" \
     -e WORKSPACE=$PWD \
     -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
