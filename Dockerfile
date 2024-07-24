@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 ARG AWS_RUNAS_VERSION=3.5.2
 ADD https://github.com/mmmorris1975/aws-runas/releases/download/${AWS_RUNAS_VERSION}/aws-runas_${AWS_RUNAS_VERSION}_amd64.deb /root/aws-runas_${AWS_RUNAS_VERSION}_amd64.deb
@@ -30,6 +30,8 @@ RUN \
     echo "alias tg='terragrunt'" >> ~/.bashrc && \
     echo "alias tf='terraform'" >> ~/.zshrc && \
     echo "alias tg='terragrunt'" >> ~/.zshrc && \
+    echo "terraform --version" >> ~/.zshrc && \
+    echo "terraform --version" >> ~/.bashrc && \
     usermod -s /bin/zsh root
 
 WORKDIR /workspace
